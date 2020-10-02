@@ -15,9 +15,9 @@ export default class ShardClient extends EventManager {
   unavailableGuilds = new Set<bigint>();
   url: string;
   wsOptions?: WebSocket.ClientOptions;
-  ws?: WebSocket;
 
   #token: string;
+  #ws?: WebSocket;
 
   constructor(data: ShardClientData) {
     super();
@@ -34,7 +34,7 @@ export default class ShardClient extends EventManager {
    * Connect to Discord's gateway
    */
   connect() {
-    const ws = this.ws = new WebSocket(this.url, this.wsOptions);
+    const ws = this.#ws = new WebSocket(this.url, this.wsOptions);
 
     return new Promise<void>((resolve) => ws.once('close', resolve));
   }
@@ -50,6 +50,17 @@ export default class ShardClient extends EventManager {
   resume() {}
 
   async requestGuildMembers() {}
+
+  // @ts-ignore: Class methods can be named with private modifiers
+  #sendWS(opcode: number, data: unknown) {
+    const packet = {
+      op: opcode,
+      d: data
+    };
+
+    // TODO: Support 'discord/erlpack' encoding
+    this.#ws?.send(JSON.stringify(packet));
+  }
 }
 
 export interface IdentifyPayload {
