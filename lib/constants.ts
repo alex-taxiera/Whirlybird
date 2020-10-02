@@ -103,7 +103,7 @@ export enum GatewayCloseCodes {
 }
 
 export enum GatewayEvents {
-  channelCreate                 = 'channelCreate',
+  CHANNEL_CREATE                = 'channelCreate',
   CHANNEL_DELETE                = 'channelDelete',
   CHANNEL_PINS_UPDATE           = 'channelPinsUpdate',
   CHANNEL_UPDATE                = 'channelUpdate',
