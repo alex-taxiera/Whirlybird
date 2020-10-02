@@ -15,9 +15,9 @@ export default class ShardClient extends EventManager {
   unavailableGuilds = new Set<bigint>();
   url: string;
   wsOptions?: WebSocket.ClientOptions;
+  ws?: WebSocket;
 
   #token: string;
-  #ws?: WebSocket;
 
   constructor(data: ShardClientData) {
     super();
@@ -34,10 +34,22 @@ export default class ShardClient extends EventManager {
    * Connect to Discord's gateway
    */
   connect() {
-    const ws = this.#ws = new WebSocket(this.url, this.wsOptions);
+    const ws = this.ws = new WebSocket(this.url, this.wsOptions);
 
     return new Promise<void>((resolve) => ws.once('close', resolve));
   }
+
+  heartbeat() {}
+
+  identify() {}
+  
+  updatePresence() {}
+
+  updateVoiceState() {}
+
+  resume() {}
+
+  async requestGuildMembers() {}
 }
 
 export interface IdentifyPayload {
