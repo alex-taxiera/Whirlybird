@@ -1,0 +1,45 @@
+{
+  "name": "@apacheli/whirlybird",
+  "version": "1.0.0",
+  "description": "Really cool Discord API library",
+  "main": "out",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint lib || true",
+    "lint:fix": "eslint --fix lib || true",
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apacheli/Whirlybird.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "discord-api",
+    "nodejs",
+    "typescript",
+    "whirlybird"
+  ],
+  "author": "Apacheli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Apacheli/Whirlybird/issues"
+  },
+  "homepage": "https://github.com/Apacheli/Whirlybird#readme",
+  "type": "module",
+  "dependencies": {
+    "@apacheli/event-manager": "github:apacheli/event-manager",
+    "@apacheli/logger": "github:apacheli/logger",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "@apacheli/eslint-config-ts": "github:apacheli/eslint-config-ts",
+    "@apacheli/tsconfig": "github:apacheli/tsconfig",
+    "@types/ws": "^7.2.7",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "typescript": "^4.0.3"
+  }
+}

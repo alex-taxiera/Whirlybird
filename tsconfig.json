@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "out"
+  },
+  "extends": "@apacheli/tsconfig",
+  "include": [
+    "lib"
+  ]
+}
